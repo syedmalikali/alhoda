@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include alhoda *.css
+recursive-include alhoda *.csv
+recursive-include alhoda *.html
+recursive-include alhoda *.ico
+recursive-include alhoda *.js
+recursive-include alhoda *.json
+recursive-include alhoda *.md
+recursive-include alhoda *.png
+recursive-include alhoda *.py
+recursive-include alhoda *.svg
+recursive-include alhoda *.txt
+recursive-exclude alhoda *.pyc
