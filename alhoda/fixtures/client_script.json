@@ -1,0 +1,15 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Quotation",
+  "enabled": 1,
+  "modified": "2022-01-24 09:26:58.007003",
+  "name": "Quotation-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Quotation', {\nsetup: function(frm) {\n\t\tfrm.set_query(\"branch\", function() {\n\t\t\treturn {\n\t\t\t\tfilters: [\n\t\t\t\t['Cost Center', 'is_group', '=', 0]\n\t\t\t\t]\n\t\t\t};\n\t\t});\n\t}\n});\n",
+  "view": "Form"
+ }
+]

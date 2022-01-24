@@ -15,7 +15,8 @@ app_license = "MIT"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/alhoda/css/alhoda.css"
 # app_include_js = "/assets/alhoda/js/alhoda.js"
-
+fixtures = ["Cost Center",
+"Client Script" , "Warehouse" ,"Branch"]
 # include js, css files in header of web template
 # web_include_css = "/assets/alhoda/css/alhoda.css"
 # web_include_js = "/assets/alhoda/js/alhoda.js"
@@ -172,4 +173,3 @@ user_data_fields = [
 # auth_hooks = [
 # 	"alhoda.auth.validate"
 # ]
-
