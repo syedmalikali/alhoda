@@ -2,14 +2,40 @@
  {
   "docstatus": 0,
   "doctype": "Client Script",
+  "dt": "Item",
+  "enabled": 1,
+  "modified": "2022-01-25 15:10:39.500941",
+  "name": "Item-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Item', {\r\n refresh(frm) {\r\n        cur_frm.set_df_property(\"sb_barcodes\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"inventory_section\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"serial_nos_and_batches\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"hub_publishing_sb\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"manufacturing\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"inspection_criteria\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"item_tax_section_break\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"customer_details\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"foreign_trade_details\", \"hidden\", 1);\r\n        cur_frm.set_df_property(\"include_item_in_manufacturing\", \"hidden\", 1);\r\n        \r\n     }\r\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
   "dt": "Quotation",
   "enabled": 1,
-  "modified": "2022-01-24 09:26:58.007003",
+  "modified": "2022-01-26 15:15:14.999699",
   "name": "Quotation-Form",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Quotation', {\nsetup: function(frm) {\n\t\tfrm.set_query(\"branch\", function() {\n\t\t\treturn {\n\t\t\t\tfilters: [\n\t\t\t\t['Cost Center', 'is_group', '=', 0]\n\t\t\t\t]\n\t\t\t};\n\t\t});\n\t}\n});\n",
+  "script": "frappe.ui.form.on('Quotation', {\n\tbranch: function(frm) {\n\t   \t           frm.set_value('branch_abbr', frm.doc.branch.substr(0,3));\n\t               frm.refresh_field('branch_abbr');\n\t           }\n\t       \n\t \n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Sales Order",
+  "enabled": 1,
+  "modified": "2022-01-26 15:46:01.927127",
+  "name": "Sales Order-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Sales Order', {\n\tbranch: function(frm) {\n\t   \t           frm.set_value('branch_abbr', frm.doc.branch.substr(0,3));\n\t               frm.refresh_field('branch_abbr');\n\t           }\n\t       \n\t \n});",
   "view": "Form"
  }
 ]
