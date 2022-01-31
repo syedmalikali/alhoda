@@ -2,7 +2,7 @@
  "category": "Modules",
  "charts": [],
  "creation": "2022-01-23 11:00:18.745224",
- "developer_mode_only": 1,
+ "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
  "doctype": "Workspace",
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_default": 0,
  "is_standard": 1,
- "label": "Alhoda Sales",
+ "label": "Alhoda New",
  "links": [
   {
    "hidden": 0,
@@ -225,7 +225,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-01-23 11:04:27.273815",
+ "modified": "2022-01-27 08:48:40.647003",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Alhoda New",
