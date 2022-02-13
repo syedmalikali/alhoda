@@ -17,12 +17,12 @@
   "doctype": "Client Script",
   "dt": "Quotation",
   "enabled": 1,
-  "modified": "2022-01-26 15:15:14.999699",
+  "modified": "2022-02-01 16:57:03.756214",
   "name": "Quotation-Form",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
-  "script": "frappe.ui.form.on('Quotation', {\n\tbranch: function(frm) {\n\t   \t           frm.set_value('branch_abbr', frm.doc.branch.substr(0,3));\n\t               frm.refresh_field('branch_abbr');\n\t           }\n\t       \n\t \n});",
+  "script": "frappe.ui.form.on('Quotation', {\n\tbranch: function(frm) {\n\t   \t           frm.set_value('branch_abbr', frm.doc.branch.substr(0,3));\n\t               frm.refresh_field('branch_abbr');\n\t           }\n\t       \n\t \n});\nfrappe.ui.keys.on('ctrl+q', function(e) {\n      {\n      \n        { \n                const current_doc = $('.data-row.editable-row').parent().attr(\"data-name\");\n                const item_row = locals[\"Quotation Item\"][current_doc];\n                frappe.call({\n                    method: 'erpnext.stock.dashboard.item_dashboard.get_data',\n                    args: {\n                        item_code: item_row.item_code,\n                    },\n                    callback: function(r) {\n                        if (r.message.length > 0){\n                            const d = new frappe.ui.Dialog({\n                                title: __('Item Balance'),\n                                width: 400\n                            });\n                            $(`<div class=\"modal-body ui-front\">\n                                <h2>${item_row.item_code}</h2>\n                                <p>Choose Warehouse and click Select :</p>\n                                <table class=\"table table-bordered\">\n                                <thead>\n                                    <tr>\n                                    <th>Check</th>\n                                    <th>Warehouse</th>\n                                    <th>Qty</th>\n                                    <th>UOM</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                </tbody>\n                                </table>\n                            </div>`).appendTo(d.body);\n                            r.message.forEach(element => {\n                                const tbody = $(d.body).find('tbody');\n                                const tr = $(`\n                                <tr>\n                                    <td><input type=\"checkbox\" class=\"check-warehouse\" data-warehouse=\"${element.warehouse}\"></td>\n                                    <td>${element.warehouse}</td>\n                                    <td>${element.actual_qty}</td>\n                                    <td>${item_row.stock_uom }</td>\n                                </tr>\n                                `).appendTo(tbody)\n                                tbody.find('.check-warehouse').on('change', function() {\n                                    $('input.check-warehouse').not(this).prop('checked', false);  \n                                });\n                            });\n                            d.set_primary_action(\"Select\", function() {\n                                $(d.body).find('input:checked').each(function(i, input) {\n           frappe.model.set_value(item_row.doctype, item_row.name, 'warehouse', $(input).attr('data-warehouse'));\n                                });\n                                cur_frm.rec_dialog.hide();\n                                cur_frm.refresh_fields();\n                            });\n                            cur_frm.rec_dialog = d;\n                            d.show();  \n                        }\n                    }\n                });     \n        }\n      \n     }\n    }\n);",
   "view": "Form"
  },
  {
@@ -36,6 +36,19 @@
   "parentfield": null,
   "parenttype": null,
   "script": "frappe.ui.form.on('Sales Order', {\n\tbranch: function(frm) {\n\t   \t           frm.set_value('branch_abbr', frm.doc.branch.substr(0,3));\n\t               frm.refresh_field('branch_abbr');\n\t           }\n\t       \n\t \n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Delivery Note",
+  "enabled": 1,
+  "modified": "2022-01-31 16:03:03.985294",
+  "name": "Delivery Note-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on('Delivery Note', {\n\tbranch: function(frm) {\n\t   \t           frm.set_value('branch_abbr', frm.doc.branch.substr(0,3));\n\t               frm.refresh_field('branch_abbr');\n\t           }\n\t       \n\t \n});",
   "view": "Form"
  }
 ]

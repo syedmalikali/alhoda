@@ -225,7 +225,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-01-27 08:48:40.647003",
+ "modified": "2022-01-31 16:36:33.170130",
  "modified_by": "Administrator",
  "module": "Alhoda",
  "name": "Alhoda New",
@@ -237,22 +237,34 @@
    "color": "Green",
    "doc_view": "",
    "format": "{} Open",
-   "label": "Loan Application",
-   "link_to": "Loan Application",
+   "label": "Item",
+   "link_to": "Item",
    "stats_filter": "{ \"status\": \"Open\" }",
    "type": "DocType"
   },
   {
-   "doc_view": "",
-   "label": "Loan",
-   "link_to": "Loan",
+   "doc_view": "List",
+   "label": "Quotation",
+   "link_to": "Quotation",
    "type": "DocType"
   },
   {
-   "doc_view": "",
-   "label": "Dashboard",
-   "link_to": "Loan Dashboard",
-   "type": "Dashboard"
+   "doc_view": "List",
+   "label": "Sales Order",
+   "link_to": "Sales Order",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Delivery Order",
+   "link_to": "Delivery Note",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Sales Invoice",
+   "link_to": "Sales Invoice",
+   "type": "DocType"
   }
  ]
 }
